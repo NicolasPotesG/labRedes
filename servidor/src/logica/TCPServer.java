@@ -25,9 +25,9 @@ public class TCPServer {
 	
 	public TCPServer(int pPort, int pNumberConnections, int fileNumber) throws Exception {
 		File file = new File("./data/FileNumeber.txt");
-		if(!file.exists()) {
+		/*if(!file.exists()) {
 			file.createNewFile();
-		}
+		}*/
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		int n = 0;
 		String line = br.readLine();
