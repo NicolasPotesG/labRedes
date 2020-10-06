@@ -101,7 +101,7 @@ public class TCPThread extends Thread{
 		outLog.println("");
 		outLog.println("Cliente: "+client);
 		outLog.println("Nombre archivo enviado: "+file.getName());
-		outLog.println("Tamaño archivo: "+file.length()+" Bytes");
+		outLog.println("Tamano archivo: "+file.length()+" Bytes");
 		outLog.println("Fecha: "+ dateFormat.format(date));
 		outLog.println("Tiempo: "+ seconds+" seg");
 		outLog.println("Envio "+ estadoEnvio);

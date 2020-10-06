@@ -69,13 +69,13 @@ public class TCPServer {
 			System.out.println("Nueva conexion aceptada");		
 			
 			
-			System.out.println("Esperando notificación del cliente...");
+			System.out.println("Esperando notificacion del cliente...");
 			DataInputStream linea = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 			String resp = "";
 			while(!resp.equals("Preparado")) {
 				resp = linea.readUTF();			
 			}
-			System.out.println("Notificación cliente: " + resp);
+			System.out.println("Notificacion cliente: " + resp);
 			
 			
 			TCPThread newConnection = new TCPThread(socket, connectionsEstablished, path, logPath);
@@ -94,13 +94,13 @@ public class TCPServer {
 		System.out.println("Connection established");
 		
 		
-		System.out.println("Esperando notificación del cliente...");
+		System.out.println("Esperando notificacion del cliente...");
 		DataInputStream linea = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
 		String resp = "";
 		while(!resp.equals("Preparado")) {
 			resp = linea.readUTF();			
 		}
-		System.out.println("Notificación cliente: " + resp);
+		System.out.println("Notificacion cliente: " + resp);
 		
 		File file = new File(path);
 		
