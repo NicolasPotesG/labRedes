@@ -27,13 +27,13 @@ public class TCPServer {
 		File file = new File("./data/FileNumeber.txt");
 		/*if(!file.exists()) {
 			file.createNewFile();
-		}*/
-		BufferedReader br = new BufferedReader(new FileReader(file)); 
+		}
+		BufferedReader br = new BufferedReader(new FileReader(file)); */
 		int n = 0;
-		String line = br.readLine();
+		/*String line = br.readLine();
 		if(line!=null) {
 			n = Integer.parseInt(line)+1;
-		}
+		}*/
 		PrintWriter writer = new PrintWriter(file);
 		writer.print(""+n);
 		writer.close();
