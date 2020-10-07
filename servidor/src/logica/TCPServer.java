@@ -24,26 +24,26 @@ public class TCPServer {
 	private String path;
 	
 	public TCPServer(int pPort, int pNumberConnections, int fileNumber) throws Exception {
-		/*File file = new File("./data/FileNumeber.txt");
-		/*if(!file.exists()) {
+		File file = new File("./data/FileNumeber.txt");
+		if(!file.exists()) {
 			file.createNewFile();
 		}
-		BufferedReader br = new BufferedReader(new FileReader(file)); */
+		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		int n = 0;
-		/*String line = br.readLine();
+		String line = br.readLine();
 		if(line!=null) {
 			n = Integer.parseInt(line)+1;
-		}*/
-		/*PrintWriter writer = new PrintWriter(file);
+		}
+		PrintWriter writer = new PrintWriter(file);
 		writer.print(""+n);
-		writer.close();*/
+		writer.close();
 		String logPath = "./data/log"+n+".txt";
-		File file = new File(logPath);
+		file = new File(logPath);
 		if(!file.exists()) {
 			file.createNewFile();
 		}
 		
-		PrintWriter writer = new PrintWriter(file);
+		writer = new PrintWriter(file);
 		writer.print("");
 		writer.close();
 		path = paths[fileNumber];
