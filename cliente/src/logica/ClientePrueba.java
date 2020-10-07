@@ -16,15 +16,15 @@ public class ClientePrueba {
 	
 	private static DataOutputStream out = null;
 	
-	private static String ip = "192.168.1.17";
+	private static String ip = "192.168.1.10";
 	
 	public static void main(String[] args) throws Exception{
         Socket socket = new Socket(ip, 5000);   
         out = new DataOutputStream(socket.getOutputStream());
 
-        System.out.println("Conexi�n establecida");
+        System.out.println("Conexión establecida");
         out.writeUTF("Preparado");
-        System.out.println("Preparado para recepci�n de archivos");
+        System.out.println("Preparado para recepción de archivos");
         
         byte[] contents = new byte[10000];
         
@@ -46,7 +46,7 @@ public class ClientePrueba {
         dos.writeUTF("Tamano recibido");
         dos.flush();
         
-        FileOutputStream fos = new FileOutputStream("./../dataPrueba/"+fileName);
+        FileOutputStream fos = new FileOutputStream("./dataPrueba/"+fileName);
         BufferedOutputStream bos = new BufferedOutputStream(fos);
         int bytesRead = 0;
         
@@ -60,7 +60,7 @@ public class ClientePrueba {
 		} ;
         bos.flush();
         System.out.println("Archivo recibido");
-        String CKcalculado = getFileChecksum("./../dataPrueba/"+fileName);
+        String CKcalculado = getFileChecksum("./dataPrueba/"+fileName);
         String estado;
         if(CKcalculado.equals(CK)) {
         	estado = "Exito";
@@ -75,7 +75,7 @@ public class ClientePrueba {
         log("./dataPrueba/"+fileName, estado, seconds);
         
         socket.close(); 
-        System.out.println("El archivo se guard� exitosamente");
+        System.out.println("El archivo se guardó exitosamente");
     }
 	
 	private static String getFileChecksum(String path) throws IOException, NoSuchAlgorithmException
@@ -99,7 +99,7 @@ public class ClientePrueba {
 	}
 	
 	public static void log(String nombreArchivo, String estado, double seconds) throws Exception {
-		File file = new File("./../dataPrueba/FileNumeber.txt");
+		File file = new File("./dataPrueba/FileNumeber.txt");
 		if(!file.exists()) {
 			file.createNewFile();
 		}
@@ -112,7 +112,7 @@ public class ClientePrueba {
 		PrintWriter writer = new PrintWriter(file);
 		writer.print(""+n);
 		writer.close();
-		String logPath = "./../dataPrueba/log"+n+".txt";
+		String logPath = "./dataPrueba/log"+n+".txt";
 		file = new File(logPath);
 		if(!file.exists()) {
 			file.createNewFile();
@@ -123,7 +123,7 @@ public class ClientePrueba {
 		writer.println("");
 		writer.println("Cliente: "+ip);
 		writer.println("Nombre archivo enviado: "+file.getName());
-		writer.println("Tamaño archivo: "+file.length()+" Bytes");
+		writer.println("TamaÃ±o archivo: "+file.length()+" Bytes");
 		writer.println("Fecha: "+ dateFormat.format(date));
 		writer.println("Tiempo: "+ seconds+" seg");
 		writer.println("Envio "+ estado);
