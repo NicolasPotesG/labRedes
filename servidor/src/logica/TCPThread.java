@@ -66,7 +66,7 @@ public class TCPThread extends Thread{
 	        }
 	        long current = 0;
 	        while(current!=fileLength){ 
-	            int size = 20000;
+	            int size = 2000000;
 	            if(fileLength - current >= size)
 	                current += size;    
 	            else{ 

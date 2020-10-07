@@ -115,7 +115,7 @@ public class TCPServer {
         long current = 0;
         long start = System.nanoTime();
         while(current!=fileLength){ 
-            int size = 10000;
+            int size = 10000000;
             if(fileLength - current >= size)
                 current += size;    
             else{ 
