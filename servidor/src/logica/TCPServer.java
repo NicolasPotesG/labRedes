@@ -7,7 +7,7 @@ public class TCPServer {
 	
 	public final static int maxNumberConnections = 25;
 	
-	public final static String[] paths = {"./data/100MiBFile.mp4","./data/250MiBFile"};
+	public final static String[] paths = {"./../data/100MiBFile.mp4","./../data/250MiBFile"};
 	
 	private int port;
 	
@@ -24,7 +24,7 @@ public class TCPServer {
 	private String path;
 	
 	public TCPServer(int pPort, int pNumberConnections, int fileNumber) throws Exception {
-		File file = new File("./data/FileNumeber.txt");
+		File file = new File("./../data/FileNumeber.txt");
 		if(!file.exists()) {
 			file.createNewFile();
 		}
@@ -37,7 +37,7 @@ public class TCPServer {
 		PrintWriter writer = new PrintWriter(file);
 		writer.print(""+n);
 		writer.close();
-		String logPath = "./data/log"+n+".txt";
+		String logPath = "./../data/log"+n+".txt";
 		file = new File(logPath);
 		if(!file.exists()) {
 			file.createNewFile();

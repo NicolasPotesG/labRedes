@@ -46,7 +46,7 @@ public class ClientePrueba {
         dos.writeUTF("Tamano recibido");
         dos.flush();
         
-        FileOutputStream fos = new FileOutputStream("./dataPrueba/"+fileName);
+        FileOutputStream fos = new FileOutputStream("./../dataPrueba/"+fileName);
         BufferedOutputStream bos = new BufferedOutputStream(fos);
         int bytesRead = 0;
         
@@ -60,7 +60,7 @@ public class ClientePrueba {
 		} ;
         bos.flush();
         System.out.println("Archivo recibido");
-        String CKcalculado = getFileChecksum("./dataPrueba/"+fileName);
+        String CKcalculado = getFileChecksum("./../dataPrueba/"+fileName);
         String estado;
         if(CKcalculado.equals(CK)) {
         	estado = "Exito";
@@ -99,7 +99,7 @@ public class ClientePrueba {
 	}
 	
 	public static void log(String nombreArchivo, String estado, double seconds) throws Exception {
-		File file = new File("./dataPrueba/FileNumeber.txt");
+		File file = new File("./../dataPrueba/FileNumeber.txt");
 		if(!file.exists()) {
 			file.createNewFile();
 		}
@@ -112,7 +112,7 @@ public class ClientePrueba {
 		PrintWriter writer = new PrintWriter(file);
 		writer.print(""+n);
 		writer.close();
-		String logPath = "./dataPrueba/log"+n+".txt";
+		String logPath = "./../dataPrueba/log"+n+".txt";
 		file = new File(logPath);
 		if(!file.exists()) {
 			file.createNewFile();
